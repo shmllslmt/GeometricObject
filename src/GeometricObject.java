@@ -26,7 +26,7 @@ public abstract class GeometricObject {
     public boolean isFilled() {
         return filled;
     }
-
     public abstract double calcArea();
     public abstract double calcPerimeter();
+
 }
