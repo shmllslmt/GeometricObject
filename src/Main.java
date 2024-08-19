@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         GeometricObject object1 = new Circle(5.0);
 //        System.out.println("Area: " + object1.calcArea());
 
@@ -31,17 +31,21 @@ public class Main {
 //        if(rectangle instanceof GeometricObject)
 //            System.out.println("rectangle is an instance of Geometric Object");
 
-        ComparableRectangle rect1 = new ComparableRectangle(50, 50);
-        ComparableRectangle rect2 = new ComparableRectangle(100, 50);
+        ComparableRectangle r1 = new ComparableRectangle(100, 100);
+        ComparableRectangle r2 = new ComparableRectangle(50, 100);
 
-        System.out.println("Rectangle 1 Area: "+rect1.calcArea());
-        System.out.println("Rectangle 2 Area: "+rect2.calcArea());
+        System.out.println("R1 vs R2: "+r1.compareTo(r2));
+        if(r1.compareTo(r2) > 0)
+            System.out.println("R1 is bigger than R2");
+        else if (r1.compareTo(r2) > 0)
+            System.out.println("R1 is smaller than R2");
+        else
+            System.out.println("R1 is equals to R2");
 
-        System.out.println("Rectangle 1 v Rectangle 2: "+rect1.compareTo(rect2));
+        ComparableRectangle r3 = (ComparableRectangle) r2.clone();
+        r2.printInfo();
+        r3.printInfo();
 
-        ComparableCircle circ1 = new ComparableCircle(5);
-        ComparableCircle circ2 = new ComparableCircle(10);
 
-        System.out.println("Circle 1 v Circle 2: "+circ1.compareTo(circ1));
     }
 }
